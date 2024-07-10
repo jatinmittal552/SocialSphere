@@ -1,9 +1,12 @@
+import Profile from "../../pages/profile/Profile";
 import "./topbar.css";
 import { Search,Person,Chat,Notifications } from "@mui/icons-material";
 
 const TopBar = () => {
+
   return (
     <div>
+      <div className="topbar-parent">
       <div className="topbar">
         <div className="left">
           <span className="company">Facebook</span>
@@ -35,6 +38,7 @@ const TopBar = () => {
           </div>
         </div>
         <img src="/assets/ironman.jpg" alt="profile" className="profileimage" />
+      </div>
       </div>
     </div>
   );

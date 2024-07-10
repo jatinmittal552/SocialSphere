@@ -5,17 +5,27 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import ShareIcon from '@mui/icons-material/Share';
 import './post.css'
+import { Users } from '../../dummydata';
+import { useState } from 'react';
+const Post = ({id,post}) => {
+    
+    const [like, setlike] = useState(post.like)
+    const [islike, setislike] = useState(false)
 
-const Post = () => {
-  return (
+    const likehandler=()=>{
+        setlike(islike ? like-1 : like+1)
+        setislike(!islike)
+    }
+
+    return (
     <div className='post'>
         <div className="postwrapper">
             <div className="posttop">
                 <div className="posttopleft">
-                    <img src="/assets/ironman.jpg" alt="img" className="postprofileimage" />
+                    <img src={Users.filter((u)=>u.id===post?.id)[0].profilePicture} alt="img" className="postprofileimage" />
                     <span>
-                    <div className='postusername'>Jatin</div>
-                    <div className='posttime'>5 min ago</div>
+                    <div className='postusername'>{Users.filter((u)=>u.id===post?.id)[0].username}</div>
+                    <div className='posttime'>{post.date}</div>
                     </span>
                 </div>
                 <div className="posttopright">
@@ -23,29 +33,29 @@ const Post = () => {
                 </div>
             </div>
             <div className="postcenter">
-                <div className="posttext">hey, it is my image</div>
-                <img src="/assets/ironman.jpg" alt="img" className="postimage" />
+                <div className="posttext">{post?.desc}</div>
+                <img src={post.photo} alt="img" className="postimage" />
             </div>
             <div className="postbottom">
                 <div className="postdetails">
                     <ThumbUpIcon htmlColor='blue' className='postlike'/>
-                    <span className="postlikecount">5</span>
+                    <span className="postlikecount">{like} likes</span>
                 </div>
                 <div className="postdetails">
-                    <span className="postcommentcount">5</span>
+                    <span className="postcommentcount">{post.comment} comments</span>
                     <CommentIcon htmlColor='grey' className='postcomment'/>
                 </div>
             </div>
             <hr className="postbreakline" />
             <div className="postfooter">
-                <div className="postmanipulation">
+                <div className="postmanipulation" onClick={likehandler}>
                     <ThumbUpOffAltIcon/>
                     <span className='postdatamanipulation'>
-                        Like
+                        Like 
                     </span>
                 </div>
                 <hr className="postdatabreakline" />
-                <div className="postmanipulation">
+                <div className="postmanipulation" >
                     <ChatBubbleOutlineIcon/>
                     <span className='postdatamanipulation'>
                         Comment
@@ -55,14 +65,14 @@ const Post = () => {
                 <div className="postmanipulation">
                     <ShareIcon/>
                     <span className='postdatamanipulation'>
-                        Comment
+                        Share
                     </span>
                 </div>
             </div>
         </div>
 
     </div>
-  )
+    )
 }
 
 export default Post

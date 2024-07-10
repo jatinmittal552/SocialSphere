@@ -1,14 +1,18 @@
+.topbar-parent{
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+}
+
 .topbar{
     display: flex;
-    height: 46px;
+    height: 52px;
     width: 100%;
     background-color:rgb(59, 59, 246);
     color: white;
     align-items: center;
-    position: sticky;
-    top: 0;
     padding-left:20px ;
-    /* z-index: 999; */
 }
 
 .left{
@@ -17,6 +21,9 @@
 }
 .centre{
     flex: 5;
+    margin-left: -49px;
+    margin-right: 10px;
+    width: 90%;
 
 }
 .right{

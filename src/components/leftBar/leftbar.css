@@ -1,18 +1,19 @@
 .leftbar{
     flex: 3;
-    height: (100vh-50px);
+    /* height: (100vh-50px);
 
     position: sticky;
 
-    top: 50px;
+    top: 50px; */
 }
 
 .leftwrapper{
-    margin-top: 2px;
+    height: calc(100vh - 46px);
+    position: sticky;
+    top: 46px;
+    width: 100%;
+    overflow: auto;
 
-}
-.leftwrapper:hover{
-    overflow-y: scroll;
     
 }
 

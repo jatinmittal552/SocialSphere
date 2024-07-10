@@ -1,10 +1,15 @@
 import React from 'react'
 import './rightbar.css'
-const RightBar = () => {
-  return (
-    <div className='rightbar'>
-        <div className="rightwrapper">
-          <div className="birthdaycontainer">
+import Online from '../online/Online'
+import Friend from '../friends/Friend'
+import { Users } from '../../dummydata'
+const RightBar = ({profile}) => {
+  
+  const HomeRightBar=()=>{
+    return(
+      <>
+      <div className="homerightbar">
+        <div className="birthdaycontainer">
             <div className="birthdaytitle">Birthday</div>
             <div className="birthdaycontent">
               <img src="/assets/gift.png" alt="gift" className="birthdaygift" />
@@ -21,65 +26,58 @@ const RightBar = () => {
           </div>
           <hr className="rightbreakline" />
 
-          <div className="rightfrienditems">
             <div className="friendtitle">
               Active Friends
             </div>
-            <ul className='onlinefriends'>
+          <ul className="rightfrienditems">
 
-            <li className="friendcontainer">
-                <img src="assets/ironman.jpg" alt="img" className="friendprofileimg" />
-                <span className='activesymbol'></span>
-                <span className="friendusername">Jatin</span>
-            </li>
-            <li className="friendcontainer">
-                <img src="assets/ironman.jpg" alt="img" className="friendprofileimg" />
-                <span className='activesymbol'></span>
-
-                <span className="friendusername">Jatin</span>
-            </li>
-            <li className="friendcontainer">
-                <img src="assets/ironman.jpg" alt="img" className="friendprofileimg" />
-                <span className='activesymbol'></span>
-
-                <span className="friendusername">Jatin</span>
-            </li>
-            <li className="friendcontainer">
-                <img src="assets/ironman.jpg" alt="img" className="friendprofileimg" />
-                <span className='activesymbol'></span>
-
-                <span className="friendusername">Jatin</span>
-            </li>
-            <li className="friendcontainer">
-                <img src="assets/ironman.jpg" alt="img" className="friendprofileimg" />
-                <span className="friendusername">Jatin</span>
-            </li>
-            <li className="friendcontainer">
-                <img src="assets/ironman.jpg" alt="img" className="friendprofileimg" />
-                <span className="friendusername">Jatin</span>
-            </li>
-            <li className="friendcontainer">
-                <img src="assets/ironman.jpg" alt="img" className="friendprofileimg" />
-                <span className="friendusername">Jatin</span>
-            </li>
-            <li className="friendcontainer">
-                <img src="assets/ironman.jpg" alt="img" className="friendprofileimg" />
-                <span className="friendusername">Jatin</span>
-            </li>
-            <li className="friendcontainer">
-                <img src="assets/ironman.jpg" alt="img" className="friendprofileimg" />
-                <span className="friendusername">Jatin</span>
-            </li>
-            <li className="friendcontainer">
-                <img src="assets/ironman.jpg" alt="img" className="friendprofileimg" />
-                <span className="friendusername">Jatin</span>
-            </li>
-            <li className="friendcontainer">
-                <img src="assets/ironman.jpg" alt="img" className="friendprofileimg" />
-                <span className="friendusername">Jatin</span>
-            </li>
-            </ul>
+            {Users.map((user)=>(
+              <Online key={user.id} user={user} />
+  ))}
+          </ul>
           </div>
+
+      </>
+    )
+  } 
+
+  const ProfileRightBar=()=>{
+    return(
+      <>
+        <h4 className='profilerightbartitle'>User Information</h4>
+        <div className="profileuserinfo">
+          <div className="profileuserinfoitem">
+            <span className="profileuserinfoitemkey">City :</span>
+            <span className="profileuserinfoitemvalue">Delhi</span>
+          </div>
+          <div className="profileuserinfoitem">
+            <span className="profileuserinfoitemkey">City :</span>
+            <span className="profileuserinfoitemvalue">Delhi</span>
+          </div>
+          <div className="profileuserinfoitem">
+            <span className="profileuserinfoitemkey">City :</span>
+            <span className="profileuserinfoitemvalue">Delhi</span>
+          </div>
+          <div className="profileuserinfoitem">
+            <span className="profileuserinfoitemkey">City :</span>
+            <span className="profileuserinfoitemvalue">Delhi</span>
+          </div>
+        </div>
+        <hr className="profilerightbreakline" />
+        <h4 className='profilerightbartitle'>User Friends</h4>
+        <div>
+          {Users.map((user)=>(
+            <Friend key={user.id} user={user}/>
+          ))}
+        </div>
+      </>
+    )
+  }
+  return (
+    <div className='rightbar'>
+        <div className="rightwrapper">
+          {(profile?<ProfileRightBar/>:<HomeRightBar/>)}
+          
         </div>
     </div>
   )
