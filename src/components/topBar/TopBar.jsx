@@ -1,7 +1,7 @@
 import Profile from "../../pages/profile/Profile";
 import "./topbar.css";
 import { Search,Person,Chat,Notifications } from "@mui/icons-material";
-
+import {Link} from "react-router-dom"
 const TopBar = () => {
 
   return (
@@ -9,7 +9,9 @@ const TopBar = () => {
       <div className="topbar-parent">
       <div className="topbar">
         <div className="left">
-          <span className="company">Facebook</span>
+        <Link to="/" style={{textDecoration:'none'}}>
+          <span className="company">SocialSphere</span>
+        </Link>
         </div>
         <div className="centre">
           <div className="search">

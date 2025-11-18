@@ -1,11 +1,12 @@
 
 import './friend.css'
 const Friend = ({id,user}) => {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
     <>
         <div className="followinglist">
             <div className="following">
-            <img src={user.profilePicture} alt="" className="followingimg" />
+            <img src={PF+user.profilePicture} alt="" className="followingimg" />
             <span className='followingusername'>{user.username}</span>
             </div>
         </div>

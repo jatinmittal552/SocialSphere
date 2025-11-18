@@ -1,14 +1,14 @@
 import { MoreVert } from '@mui/icons-material'
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import CommentIcon from '@mui/icons-material/Comment';
-import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ShareIcon from '@mui/icons-material/Share';
 import './post.css'
 import { Users } from '../../dummydata';
 import { useState } from 'react';
 const Post = ({id,post}) => {
     
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const [like, setlike] = useState(post.like)
     const [islike, setislike] = useState(false)
 
@@ -34,7 +34,7 @@ const Post = ({id,post}) => {
             </div>
             <div className="postcenter">
                 <div className="posttext">{post?.desc}</div>
-                <img src={post.photo} alt="img" className="postimage" />
+                <img src={PF+post.photo} alt="img" className="postimage" />
             </div>
             <div className="postbottom">
                 <div className="postdetails">
@@ -49,7 +49,7 @@ const Post = ({id,post}) => {
             <hr className="postbreakline" />
             <div className="postfooter">
                 <div className="postmanipulation" onClick={likehandler}>
-                    <ThumbUpOffAltIcon/>
+                    <ThumbUpIcon htmlColor={(islike)?'blue':'grey'}/>
                     <span className='postdatamanipulation'>
                         Like 
                     </span>

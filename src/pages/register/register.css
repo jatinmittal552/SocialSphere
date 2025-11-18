@@ -1,0 +1,90 @@
+
+.login{
+    width:100vw;
+    height:100vh;
+    background-color: skyblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginWrapper{
+    width:70%;
+    height:70%;
+    display:flex;
+}
+.loginLeft,.loginRight{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.name{
+   font-size: 50px;
+   font-weight: 800;
+   color: blue  ; 
+   margin-bottom: 10px;
+}
+.desc{
+    font-size: 24px;
+}
+.divider{
+    border-left: 0.1px solid black; /* Thickness and color of the line */
+    height: 96%; /* Length of the line */
+    margin-left: 20px; /* Spacing from the left */
+    margin-top: 10px;
+
+}
+
+.loginBox{
+    height:370px;
+    padding:20px;
+    margin-left: 50px;
+    background-color: azure;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.loginInput{
+    height:50px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    padding-left: 20px;
+}
+.loginInput:focus{
+    outline: none;
+}
+.loginSumbit{
+    height: 50px;
+    color:white;
+    background-color:rgb(50, 50, 203);
+    border-radius: 10px;
+    border:none;
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.loginForgot{
+    text-align: center;
+}
+.Or{
+    display: flex;
+}
+.line{
+    width: 50%;
+    height: 1px;
+    margin: 5px;
+    margin-top: 8px;
+ 
+}
+.loginRegister{
+    height: 50px;
+    color:white;
+    background-color:#1a901a;
+    border-radius: 10px;
+    border:none;
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+}
